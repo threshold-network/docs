@@ -173,7 +173,7 @@ Keys: D = depositor, S = signer (no custodian in this template)
 
 ***
 
-### Layer 4: Liquidation & Migration Path
+### Liquidation & Migration Path
 
 When a position is liquidated in an approved venue, Threshold signers automatically execute the predefined migration path.
 
@@ -237,7 +237,7 @@ When a position is liquidated in an approved venue, Threshold signers automatica
 
 ***
 
-### Layer 5: Recovery Architecture
+### Recovery Architecture
 
 Every VBA includes layered recovery paths that operate without requiring counterparty cooperation.
 
