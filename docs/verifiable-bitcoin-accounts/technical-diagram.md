@@ -2,7 +2,7 @@
 
 Verifiable Bitcoin Accounts (VBA) combine three layers: the institution's existing custody, Threshold Network's distributed signer infrastructure, and pre-approved onchain deployment venues. Bitcoin Script enforces all spending conditions at the consensus layer.
 
-<figure><img src="../.gitbook/assets/Verifiable Bitcoin Accounts Technical Diagram by Threshold network.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Verifiable Bitcoin Accounts VBA Lifecycle Diagram.png" alt="Verifiable Bitcoin Accounts (VBA) Lifecycle by Threshold Network"><figcaption></figcaption></figure>
 
 ## Layer 1: Custody Compatibility
 
