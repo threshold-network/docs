@@ -10,7 +10,6 @@
   * [The Path to Permissionlessness](tbtc-v2/the-path-to-permissionlessness.md)
 * [Verifiable Bitcoin Accounts](verifiable-bitcoin-accounts/README.md)
   * [Whitepaper](verifiable-bitcoin-accounts/whitepaper.md)
-  * [Onboarding Process](verifiable-bitcoin-accounts/onboarding-process.md)
   * [Technical Diagram](verifiable-bitcoin-accounts/technical-diagram.md)
 
 ## THRESHOLD APP

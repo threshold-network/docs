@@ -13,6 +13,6 @@ Built on Threshold Network's battle-tested signer infrastructure, Verifiable Bit
 Every spending condition, recovery path, and migration rule is encoded in Bitcoin Script - verifiable onchain, and auditable by design.
 
 {% hint style="info" %}
-Visit the Threshold Network [Institutional page ](https://threshold.network/institutional)for more info.
+Visit the Threshold Network [Institutional page](https://threshold.network/institutional) for more info.
 {% endhint %}
 
