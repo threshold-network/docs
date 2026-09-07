@@ -12,7 +12,7 @@ The KEEP and NU Vending Machine contracts were designed to remain available inde
 
 It looks more technical than the old UI, but the process itself is relatively straightforward.
 
-{% hint style="info" %}
+{% hint style="danger" %}
 Before starting the swap, make sure your **KEEP or NU is in an Ethereum (ERC-20) wallet.** This wallet should have a **small amount of ETH for gas fees**, and make sure you are connected to the Ethereum Mainnet.
 {% endhint %}
 
@@ -65,14 +65,14 @@ This transaction does not convert your KEEP/NU yet. It simply gives the Vending 
 {% endstep %}
 
 {% step %}
-### Convert your KEEP
+### Convert your KEEP/ NU to T
 
 Once your approval has been confirmed\
 a) Open the [KEEP](https://etherscan.io/address/0xE47c80e8c23f6B4A1aE41c34837a0599D5D16bb0#writeContract)/ [NU](https://etherscan.io/address/0x1cca7e410ee41739792ea0a24e00349dd247680e#writeContract) Vending Machines:
 
 b) Select: _Contract → Write Contract → Connect to Web3_
 
-c) Connect the same wallet and find: _`wrap`_ Under `amount` Enter the amount of KEEP/NU you want to convert, again using 18 decimals.
+c) Connect the same wallet and find: `wrap` Under `amount` Enter the amount of KEEP/NU you want to convert, again using 18 decimals.
 
 _For example, for 100 KEEP/NU:_
 
@@ -80,7 +80,7 @@ _For example, for 100 KEEP/NU:_
 {% endstep %}
 
 {% step %}
-### Click Write and confirm the transaction in your wallet.
+### Click `Write` and confirm the transaction in your wallet.
 
 Once the transaction is confirmed, the KEEP/NU will have been converted, and the corresponding T will appear in your wallet.
 {% endstep %}
