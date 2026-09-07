@@ -3,6 +3,7 @@
 * [What is the Threshold Network?](README.md)
 * [T Token](t-token/README.md)
   * [Staking T Tokens](t-token/staking-t-tokens.md)
+  * [Converting NU & KEEP to T](t-token/converting-nu-and-keep-to-t.md)
 * [tBTC Bitcoin Bridge](tbtc-v2/README.md)
   * [Wallet Generation](tbtc-v2/wallet-generation.md)
   * [Wallet Signing](tbtc-v2/wallet-signing.md)
