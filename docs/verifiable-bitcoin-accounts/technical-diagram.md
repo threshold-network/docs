@@ -71,8 +71,8 @@ Every move of an anchor is a Bitcoin transaction with exactly one input and one 
 
 ### Components and roles
 
-<pre><code>  PEOPLE
-  +------------------------+       +----------------------------------------------+
+<pre><code><strong>                                        PEOPLE
+</strong>  +------------------------+       +----------------------------------------------+
   |   Owner (depositor)    |       |             Threshold Council                |   
   +------------------------+       +----------------------------------------------+
       |                                |                            |
@@ -81,27 +81,27 @@ Every move of an anchor is a Bitcoin transaction with exactly one input and one 
       v                                v                            v
                                        
 <strong>                                       ETHEREUM
-</strong><strong>  +--------------------------------------+          +-----------------------------+
-</strong><strong>  | tBTC v2 Bridge with reservation code |          | ReservationVault mints tBTC |
-</strong><strong>  | records positions, authorizes every  |  credit  | and pays the owner, minus   |
-</strong><strong>  | move, checks caps and Bitcoin proofs |  ----->  | the initiation fee; its fee |
-</strong><strong>  | keeps the claim equal to the anchor  |          | reserve pays re-anchor      |
-</strong><strong>  |                                      |          | miner fees                  |
-</strong><strong>  +--------------------------------------+          +-----------------------------+   
-</strong>      ^                ^              ^
+</strong>  +--------------------------------------+          +-----------------------------+
+  | tBTC v2 Bridge with reservation code |          | ReservationVault mints tBTC |
+  | records positions, authorizes every  |  credit  | and pays the owner, minus   |
+  | move, checks caps and Bitcoin proofs |  ----->  | the initiation fee; its fee |
+  | keeps the claim equal to the anchor  |          | reserve pays re-anchor      |
+  |                                      |          | miner fees                  |
+  +--------------------------------------+          +-----------------------------+   
+      ^                ^              ^
       | check          | prove        | notify: timeouts,
       | authorization  | Bitcoin txs  | stale deposits, stranding
       |                |              |
 <strong>           OFF-CHAIN (signer operators)
-</strong><strong>  +-------------+ +--------------+ +------------+
-</strong><strong>  | tBTC signer | |     SPV      | |  watchers  |
-</strong><strong>  |    nodes    | |  maintainers | |            |
-</strong><strong>  +-------------+ +--------------+ +------------+
-</strong>      |
+</strong>  +-------------+ +--------------+ +------------+
+  | tBTC signer | |     SPV      | |  watchers  |
+  |    nodes    | |  maintainers | |            |
+  +-------------+ +--------------+ +------------+
+      |
       | sign anchor and re-anchor transactions
       v
-<strong>  BITCOIN
-</strong>  deposit UTXO --> anchor UTXO --> next anchor UTXO (1 in, 1 out each)
+<strong>    BITCOIN
+</strong>    deposit UTXO --> anchor UTXO --> next anchor UTXO (1 in, 1 out each)
 </code></pre>
 
 
@@ -208,13 +208,13 @@ Reserved deposits are not charged the Bridge's normal deposit treasury fee; the 
        to the owner, minus the initiation fee.
 ```
 
-Only the depositor may request acceptance. The signing window is bounded: the deposit must be at least 2 hours old, signers wait 6 Bitcoin confirmations before proposing, and the window must fit before the refund deadline minus a 24-hour safety margin. Parameters that matter for proof and settlement are snapshotted at request time; later governance changes do not affect the in-flight action or the dates already recorded.
+Only the depositor may request acceptance. The signing window is bounded: the deposit must be at least 2 hours old, signers must wait for 6 Bitcoin confirmations before proposing, and the window must fit within the refund deadline minus a 24-hour safety margin. Parameters that matter for proof and settlement are snapshotted at request time; later governance changes do not affect the in-flight action or the dates already recorded.
 {% endstep %}
 
 {% step %}
 ### Custody
 
-The position is Active. The owner holds ordinary tBTC: the anchor amount minus the initiation fee. The anchor sits under the custodying wallet; the wallet's honest majority protects it, fraud challenges police it, and the Bridge keeps the tracked claim equal to the anchor at all times. Re-anchoring is available at any position age. The recorded term dates exist so v2 can honor the term; in M1 nothing expires, renews or closes on them, except that a position still sitting on a Closing wallet can be stranded once its dissolution date has passed.
+The position is Active. The owner holds ordinary tBTC, which is the anchor amount minus the initiation fee. The anchor sits under the custodying wallet; the wallet's honest majority protects it, fraud challenges police it, and the Bridge keeps the tracked claim equal to the anchor at all times. Re-anchoring is available at any position age. The recorded term dates exist so v2 can honor the term; in M1, nothing expires, renews, or closes on them, except that a position still sitting on a Closing wallet can be stranded once its dissolution date has passed.
 {% endstep %}
 
 {% step %}
@@ -431,8 +431,8 @@ Launch posture: M1 launches with a small total cap, limited to design partners, 
 
 Everything above is public state; no special tooling is required.
 
-1. Compute the reservation key: the standard tBTC deposit key - keccak256 of the funding transaction hash and output index, as the Bridge uses for every deposit.
-2. Read the Bridge address: `reservations(key)` gives owner, wallet, anchor, amounts, state and dates; `reservationActions(key, nonce)` for pending actions; `reservationParameters()` for operational parameters; `reservationCaps()` for the per-wallet amount, single-position, and max-open-positions caps; `activeReservationsCount()` for current open count; `walletReservationsCount(hash)` and `walletReservationsAmount(hash)` per wallet; `pendingReservedDeposits()` and `reservedDepositWallet(key)` pre-acceptance; `reservationByAnchorUtxo(txHash, 0)` finds a position from its Bitcoin outpoint.
-3. Check the anchor output on any Bitcoin node or explorer: it must pay the custodying wallet's key at the recorded amount.
+1. **Compute the reservation key:** the standard tBTC deposit key - keccak256 of the funding transaction hash and output index, as the Bridge uses for every deposit.
+2. **Read the Bridge address:** `reservations(key)` gives owner, wallet, anchor, amounts, state, and dates; `reservationActions(key, nonce)` for pending actions; `reservationParameters()` for operational parameters; `reservationCaps()` for the per-wallet amount, single-position, and max-open-positions caps; `activeReservationsCount()` for current open count; `walletReservationsCount(hash)` and `walletReservationsAmount(hash)` per wallet; `pendingReservedDeposits()` and `reservedDepositWallet(key)` pre-acceptance; `reservationByAnchorUtxo(txHash, 0)` finds a position from its Bitcoin outpoint.
+3. **Check the anchor output** **on any Bitcoin node or explorer:** it must pay the custodying wallet's key at the recorded amount.
 4. **Follow the events:** `ReservationAcceptanceRequested`, `ReservationAccepted`, `ReservationReanchorRequested`, `ReservationReanchored`, `ReservationAcceptanceTimedOut`, `ReservationReanchorTimedOut`, `ReservationLateSettled`, `ReservationStranded`, `ReservedDepositMarkedStale`.
 5. **Read the vault:** `initiationFeeBps`, `feeReserveTarget`, and `inKindFeeDebtSat` (the outstanding public fee debt).
