@@ -61,7 +61,7 @@ M1 is switched on by governance. The reservation machinery ships inert: the rout
 {% step %}
 ### Deposit and Reveal
 
-Send bitcoin to a tBTC threshold wallet's deposit script, then reveal the deposit on Ethereum. A deposit becomes reserved by naming the reservation at reveal time; the wallet named and committed to in the deposit script is the designated wallet, and only it can accept the deposit. Reserved deposits must use a refund locktime no later than the reveal time plus the term plus 24 hours, so an unaccepted deposit always becomes refundable on Bitcoin. No reservation minimum or cap is checked at reveal: only the ordinary dust threshold.
+Send bitcoin to a tBTC threshold wallet `deposit script` then reveal the deposit on Ethereum. A deposit becomes reserved by naming the reservation at reveal time; the wallet named and committed to in the deposit script is the designated wallet, and only it can accept the deposit. _Reserved deposits must use a refund locktime no later than the reveal time plus the term plus 24 hours,_ so an unaccepted deposit always becomes refundable on Bitcoin. No reservation minimum or cap is checked at reveal: only the ordinary dust threshold.
 
 {% hint style="warning" %}
 Capacity is checked when acceptance is requested, not when the bitcoin is sent. Before sending, check that the designated wallet has a free slot under its caps and that the global caps have room. Otherwise, the acceptance request will fail, and you will have to wait for the bitcoin to become refundable through the deposit script's refund path.&#x20;
@@ -94,13 +94,13 @@ Reserved deposits are not charged the Bridge's normal deposit treasury fee; the 
        to the owner, minus the initiation fee.
 ```
 
-Only the depositor may request acceptance. The signing window is bounded: the deposit must be at least 2 hours old, signers must wait for 6 Bitcoin confirmations before proposing, and the window must fit within the refund deadline minus a 24-hour safety margin. Parameters that matter for proof and settlement are snapshotted at request time; later governance changes do not affect the in-flight action or the dates already recorded.
+**Only the depositor may request acceptance.** The signing window is bounded: the deposit must be at least 2 hours old, signers must wait for _6 Bitcoin confirmations_ before proposing, and the window must fit within the refund deadline minus a 24-hour safety margin. Parameters that matter for proof and settlement are snapshotted at the time of the request; subsequent governance changes do not affect the in-flight action or the dates already recorded.
 {% endstep %}
 
 {% step %}
 ### Custody
 
-The position is Active. The owner holds ordinary tBTC, which is the anchor amount minus the initiation fee. The anchor sits under the custodying wallet; the wallet's honest majority protects it, fraud challenges police it, and the Bridge keeps the tracked claim equal to the anchor at all times. Re-anchoring is available at any position age. The recorded term dates exist so v2 can honor the term; in M1, nothing expires, renews, or closes on them, except that a position still sitting on a Closing wallet can be stranded once its dissolution date has passed.
+The position is `Active`. The owner holds ordinary tBTC, which is the anchor amount minus the initiation fee. The anchor sits under the custodying wallet; the wallet's honest majority protects it, fraud challenges police it, and the Bridge keeps the tracked claim equal to the anchor at all times. Re-anchoring is available at any position age. The recorded term dates exist so v2 can honor the term; in M1, nothing expires, renews, or closes on them, except that a position still sitting on a Closing wallet can be stranded once its dissolution date has passed.
 {% endstep %}
 
 {% step %}
@@ -138,6 +138,6 @@ Once a retiring wallet holds no reservations and its remaining balance is below 
 {% step %}
 ### How a position ends in M1
 
-Stranding is M1's only terminal state. Anyone may file it when the position is Active and the custodying wallet is Terminated, Closed, or Closing with its dissolution date passed. The Bridge releases the capacity, drops the anchor from tracking, and records the position as Stranded. The owner's tBTC balance does not change; what is lost is the in-kind option - getting that specific bitcoin back, which v2 can honor. There is no compensation mechanism: if the bitcoin is really gone, the shortfall affects tBTC backing as a whole, exactly as with any terminated tBTC wallet today.
+Stranding is M1's only terminal state. Anyone may file it when the position is `Active` , and the custodying wallet is `Terminated`, `Closed`, or `Closing` with its dissolution date passed. The Bridge releases the capacity, drops the anchor from tracking, and records the position as Stranded. The owner's tBTC balance does not change; what is lost is the in-kind option of getting that specific bitcoin back, which v2 can honor. There is no compensation mechanism: if the bitcoin is really gone, the shortfall affects tBTC backing as a whole, exactly as with any terminated tBTC wallet today.
 {% endstep %}
 {% endstepper %}
