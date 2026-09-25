@@ -13,6 +13,7 @@
   * [Whitepaper](verifiable-bitcoin-accounts/whitepaper.md)
   * [Technical Diagram legacy](verifiable-bitcoin-accounts/technical-diagram-legacy.md)
   * [Technical Diagram](verifiable-bitcoin-accounts/technical-diagram.md)
+  * [VBA Lifecycle](verifiable-bitcoin-accounts/vba-lifecycle.md)
 
 ## THRESHOLD APP
 
