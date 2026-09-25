@@ -67,7 +67,7 @@ Send bitcoin to a tBTC threshold wallet's deposit script, then reveal the deposi
 Capacity is checked when acceptance is requested, not when the bitcoin is sent. Before sending, check that the designated wallet has a free slot under its caps and that the global caps have room. Otherwise, the acceptance request will fail, and you will have to wait for the bitcoin to become refundable through the deposit script's refund path.&#x20;
 {% endhint %}
 
-Reserved deposits are not charged the Bridge's normal deposit treasury fee; the vault's initiation fee applies instead [(see Amounts and fees).](vba-lifecycle.md#amounts-and-fees)
+Reserved deposits are not charged the Bridge's normal deposit treasury fee; the vault's initiation fee applies instead [(see Amounts and fees).](https://docs.threshold.network/verifiable-bitcoin-accounts/technical-diagram#amounts-and-fees)
 {% endstep %}
 
 {% step %}
