@@ -20,6 +20,7 @@
 * [tBTC Minting Walkthrough](threshold-app/tbtc-minting-walkthrough.md)
 * [tBTC Unminting Walkthrough](threshold-app/tbtc-unminting-walkthrough.md)
 * [tBTC Swap & Bridge Guide](threshold-app/tbtc-swap-and-bridge-guide.md)
+* [Recovery Guide](threshold-app/recovery-guide.md)
 * [tBTC Minting Walkthrough (legacy)](threshold-app/tbtc-minting-walkthrough-1.md)
 
 ## Governance

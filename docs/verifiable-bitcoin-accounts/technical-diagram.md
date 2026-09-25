@@ -7,7 +7,7 @@ description: >-
 
 # Technical Diagram
 
-## Verifiable Bitcoin Accounts M1 Technical Diagram
+## Verifiable Bitcoin Accounts (VBA) V1&#x20;
 
 {% hint style="info" %}
 **The following features are planned and are NOT available in M1:**

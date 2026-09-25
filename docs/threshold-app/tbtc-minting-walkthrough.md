@@ -14,7 +14,7 @@ Here are some things you will need before you start the minting process:\
 
 :white\_check\_mark: At least 0.01 Bitcoin (BTC)
 
-:white\_check\_mark: Bitcoin compatible wallet (self-custodied)
+:white\_check\_mark: Bitcoin-compatible wallet (self-custodied)
 
 :white\_check\_mark: Destination Wallet (on supported chains; see the list of supported chains [here](https://docs.threshold.network/contract-addresses/tbtc).)\
 \
@@ -34,12 +34,3 @@ If you don't have a Bitcoin wallet, you'll need to set one up. A solid option to
 After you've created your wallet, select `Bitcoin` as your network..
 {% endhint %}
 
-## Start minting tBTC
-
-:tada: _You're ready to mint! Go to the tBTC app here:_ [_https://app.threshold.network_](https://app.threshold.network/)_, and watch the tutorial video below:_
-
-{% embed url="https://www.youtube.com/watch?v=_2nUqzd83gI" %}
-
-### Congrats — you minted! &#x20;
-
-:tada: You've successfully minted tBTC! :tada:
