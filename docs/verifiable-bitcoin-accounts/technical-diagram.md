@@ -1,10 +1,15 @@
+---
+description: >-
+  This page describes a technical diagram for v1 of the Verifiable Bitcoin
+  Account, also called Milestone 1 ("M1"). A second version (v2) is planned to
+  ship later.
+---
+
 # Technical Diagram
 
-## Technical Diagram
+## Verifiable Bitcoin Accounts M1 Technical Diagram
 
 {% hint style="info" %}
-This page describes v1 of the Verifiable Bitcoin Account, also called Milestone 1 ("M1"). A second version (v2) is planned to ship later. \
-\
 **The following features are planned and are NOT available in M1:**
 
 * In-kind redemption: return the reserved bitcoin itself, for the whole position.
